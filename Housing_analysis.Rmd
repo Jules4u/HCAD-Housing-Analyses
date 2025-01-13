@@ -1,3 +1,4 @@
+output: rmarkdown::github_document
 ---
 title: "Housing_Analysis"
 author: "Julian Joseph"

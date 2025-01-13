@@ -1,3 +1,4 @@
+output: rmarkdown::github_document
 ---
 title: "HCAD_2024_housing_summary"
 author: "Julian Joseph"
@@ -13,17 +14,20 @@ require(dplyr)
 filter data for housing class types
 ```{r}
 Housing_2024 <- read.csv('C:\\urban_developement\\Portfolio\\HCAD\\real_acct_2024.txt', sep="\t", header=T) %>% 
+  mutate(land_ar_mi=land_ar*3.58701e-8, tot_mkt_val=na_if(tot_mkt_val,0)) %>%
   filter(str_detect(state_class,'^A|B')) %>% 
   filter(land_ar>500) %>%
   filter(tot_mkt_val>1000) %>%
-  filter(!str_detect(site_addr_1,"0"))
-  mutate(land_ar_mi=land_ar*3.58701e-8, tot_mkt_val=na_if(tot_mkt_val,0)) 
+  filter(!str_detect(site_addr_1,"0")) 
 ```
-Number of properties for each housing class
+Number of properties for each housing class.
+A=single-family
+B=multi-family
+
 ```{r}
-Housing_2024 %>% ggplot(aes(x=state_class))
-  + geom_histogram(stat="count")
-  + labs(x= 'Housing Type Class Code', 
+Housing_2024 %>% ggplot(aes(x=state_class))+
+  geom_histogram(stat="count")+
+  labs(x= 'Housing Type Class Code', 
          y= 'Number of properties', 
          title = 'Housing Class Property Counts')
 ```
