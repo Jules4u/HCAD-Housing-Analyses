@@ -1,11 +1,9 @@
-```{r}
-output: rmarkdown::github_document
-```
+
 ---
 title: "HCAD_2024_housing_summary"
 author: "Julian Joseph"
 date: "2025-01-13"
-output: html_document
+output: rmarkdown::github_document
 ---
 ```{r}
 require(tidyverse)

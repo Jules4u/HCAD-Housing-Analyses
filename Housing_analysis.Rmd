@@ -1,11 +1,9 @@
-```{r}
-output: rmarkdown::github_document
-```
+
 ---
 title: "Housing_Analysis"
 author: "Julian Joseph"
 date: "2025-01-13"
-output: html_document
+output: rmarkdown::github_document
 ---
 
 ```{r}
