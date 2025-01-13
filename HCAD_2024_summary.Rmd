@@ -1,4 +1,6 @@
+```{r}
 output: rmarkdown::github_document
+```
 ---
 title: "HCAD_2024_housing_summary"
 author: "Julian Joseph"
